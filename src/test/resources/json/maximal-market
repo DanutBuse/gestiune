@@ -1,0 +1,71 @@
+{
+  "name": "numeMarket",
+  "address": {
+    "city": "cityMarket",
+    "street": "streetMarket",
+    "postalCode": "postalCodeMarket",
+    "streetNumber": 23
+  },
+  "bankAccounts": [
+    {
+      "accountNumber": "123443123",
+      "bankName": "HSBC",
+      "bankAccountType": "DEBIT"
+    },
+    {
+      "accountNumber": "123441223",
+      "bankName": "HSBC",
+      "bankAccountType": "CREDIT"
+    }
+  ],
+  "employees": [
+    {
+      "firstName": "emp1FirstName",
+      "lastName": "emp1LastName",
+      "age": 30,
+      "address": {
+        "city": "cityEmp1",
+        "street": "streetEmp1",
+        "postalCode": "postalCodeEmp1",
+        "streetNumber": 233
+      },
+      "jobTitle": "emp1JobTitle",
+      "bankAccounts": [
+          {
+            "accountNumber": "123443144",
+            "bankName": "HSBC",
+            "bankAccountType": "DEBIT"
+          },
+          {
+            "accountNumber": "123441244",
+            "bankName": "HSBC",
+            "bankAccountType": "CREDIT"
+          }
+        ]
+    },
+    {
+      "firstName": "emp2FirstName",
+      "lastName": "emp2LastName",
+      "age": 31,
+      "address": {
+        "city": "cityEmp2",
+        "street": "streetEmp2",
+        "postalCode": "postalCodeEmp2",
+        "streetNumber": 233
+      },
+      "jobTitle": "emp2JobTitle",
+      "bankAccounts": [
+          {
+            "accountNumber": "123443155",
+            "bankName": "HSBC",
+            "bankAccountType": "DEBIT"
+          },
+          {
+            "accountNumber": "123441233",
+            "bankName": "HSBC",
+            "bankAccountType": "CREDIT"
+          }
+        ]
+    }
+  ]
+}
