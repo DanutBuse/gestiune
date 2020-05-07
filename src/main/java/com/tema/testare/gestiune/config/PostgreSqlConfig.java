@@ -40,9 +40,12 @@ public class PostgreSqlConfig {
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName(POSTGRES_DB_DRIVER);
-        dataSource.setUrl(POSTGRES_DB_URL);
-        dataSource.setUsername(POSTGRES_DB_USER);
-        dataSource.setPassword(POSTGRES_DB_PASSWORD);
+        dataSource.setUrl(
+            System.getenv("POSTGRES_URL") != null ? System.getenv("POSTGRES_URL") : POSTGRES_DB_URL);
+        dataSource.setUsername(
+            System.getenv("POSTGRES_USER") != null ? System.getenv("POSTGRES_USER") : POSTGRES_DB_USER);
+        dataSource.setPassword(
+            System.getenv("POSTGRES_PASS") != null ? System.getenv("POSTGRES_PASS") : POSTGRES_DB_PASSWORD);
 
         return dataSource;
     }

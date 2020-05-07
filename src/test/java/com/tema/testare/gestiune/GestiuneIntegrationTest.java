@@ -24,9 +24,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 
 @SpringBootTest(webEnvironment= WebEnvironment.RANDOM_PORT)
@@ -53,13 +52,12 @@ class GestiuneIntegrationTest {
 
 	@Test
 	void verifyDatabaseStorage() throws Exception {
-		File initialFile = new File("src/test/resources/json/maximal-market");
-		InputStream jsonStream = new FileInputStream(initialFile);
+		String path = "src/test/resources/json/maximal-market";
 
 		MvcResult result =
 				mvc.perform(post("/market")
 				.contentType(MediaType.APPLICATION_JSON)
-				.content(new String(jsonStream.readAllBytes())))
+				.content(new String(Files.readAllBytes(Paths.get(path)))))
 				.andExpect(status().isCreated())
 				.andReturn();
 

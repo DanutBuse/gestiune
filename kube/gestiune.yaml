@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gestiune
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: gestiune
+  template:
+    metadata:
+      labels:
+        app: gestiune
+    spec:
+      containers:
+        - name: app
+          image: danutbuse/gestiune:1.0
+          ports:
+            - containerPort: 8081
+          env:
+            - name: POSTGRES_URL
+              value: jdbc:postgresql://postgres:5432/postgres
+            - name: POSTGRES_USER
+              value: postgres
+            - name: POSTGRES_PASS
+              value: password
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: loadbalancer
+  labels:
+    app: gestiune
+spec:
+  ports:
+   - port: 8081
+     targetPort: 8081
+  selector:
+    app: gestiune
+  type: LoadBalancer

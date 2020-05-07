@@ -1,8 +1,8 @@
-package com.tema.testare.gestiune.orchestration;
+package com.tema.testare.gestiune.service;
 
 import com.tema.testare.gestiune.domain.dto.MarketDto;
 import com.tema.testare.gestiune.domain.entity.MarketEntity;
-import com.tema.testare.gestiune.orchestration.converter.MarketConverter;
+import com.tema.testare.gestiune.service.converter.MarketConverter;
 import com.tema.testare.gestiune.repository.MarketDao;
 
 import org.springframework.beans.factory.annotation.Autowired;
