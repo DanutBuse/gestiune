@@ -44,9 +44,6 @@ class MarketServiceTest {
   @Mock
   MarketDao marketDao;
 
-  @Mock
-  BankAccountDao bankAccountDao;
-
   @InjectMocks
   MarketService marketService;
 
