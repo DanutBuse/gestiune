@@ -20,6 +20,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.http.MediaType;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
@@ -33,6 +35,7 @@ import java.util.List;
 		H2Config.class,
 		GestiuneApplication.class})
 @AutoConfigureMockMvc
+@DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
 class GestiuneIntegrationTest {
 
 	@Autowired
@@ -62,9 +65,11 @@ class GestiuneIntegrationTest {
 				.andReturn();
 
 		String locationHeader = result.getResponse().getHeader("location");
-		assertThat(locationHeader).contains("/market/1");
+		assertThat(locationHeader).isNotNull();
+		assertThat(locationHeader).contains("/market/");
+		String id = locationHeader.split("/market/")[1];
 
-		MarketEntity market = marketDao.findById(1).orElse(null);
+		MarketEntity market = marketDao.findById(Integer.parseInt(id)).orElse(null);
 		assertThat(market).isNotNull();
 
 		List<EmployeeEntity> employees = employeeDao.findAll();

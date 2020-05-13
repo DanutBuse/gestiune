@@ -13,6 +13,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.http.MediaType;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
@@ -25,6 +27,7 @@ import java.nio.file.Paths;
     H2Config.class,
     GestiuneApplication.class})
 @AutoConfigureMockMvc
+@DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
 public class GestiuneFunctionalTest {
 
   @Autowired
