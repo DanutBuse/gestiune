@@ -2,10 +2,6 @@ package com.tema.testare.gestiune.domain.entity;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.tema.testare.gestiune.domain.dto.AddressDto;
-import com.tema.testare.gestiune.domain.dto.BankAccountDto;
-import com.tema.testare.gestiune.domain.dto.EmployeeDto;
-import com.tema.testare.gestiune.domain.dto.MarketDto;
 import com.tema.testare.gestiune.domain.dto.type.BankAccountType;
 
 import org.junit.jupiter.api.Test;

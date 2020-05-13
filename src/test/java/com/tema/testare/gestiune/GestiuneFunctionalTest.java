@@ -34,7 +34,7 @@ public class GestiuneFunctionalTest {
   private MockMvc mvc;
 
   @Test
-  void verifyE2EFlow() throws Exception {
+  void shouldReceiveDTOfromGetBasedOnPostBody() throws Exception {
     String path = "src/test/resources/json/maximal-market";
 
     MvcResult result =
